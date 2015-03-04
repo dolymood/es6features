@@ -9,15 +9,15 @@
 ## Introduction 简介
 ECMAScript 6 is the upcoming version of the ECMAScript standard. This standard is targeting ratification in June 2015. ES6 is a significant update to the language, and the first update to the language since ES5 was standardized in 2009. Implementation of these features in major JavaScript engines is [underway now](http://kangax.github.io/es5-compat-table/es6/).
 
-ECMAScript 6 是 ECMAScript 的下一代标准，预计将在 2015年6月 正式发布。ES6 的发布将是是这门语言自 2009 年 ES5 正式发布以来的首次更新，是一次富有意义的更新。Javascript核心引擎的[新特性](http://kangax.github.io/es5-compat-table/es6/)仍然在快速开发中。
+ECMAScript 6 是 ECMAScript 的下一代标准，预计将在 2015年6月 正式发布。ES6 的发布将是这门语言自2009年 ES5 正式发布以来的首次更新，是一次富有意义的更新。主流Javascript引擎中的这些新特性[正在](http://kangax.github.io/es5-compat-table/es6/)开发中。
 
 See the [draft ES6 standard](https://people.mozilla.org/~jorendorff/es6-draft.html) for full specification of the ECMAScript 6 language.
 
-这里有[ES6标准草案](https://people.mozilla.org/~jorendorff/es6-draft.html)的所有细节可以参考
+若希望阅读 ECMAScript 6 语言的完整规范，请参见[ES6标准草案](https://people.mozilla.org/~jorendorff/es6-draft.html)。
 
 ES6 includes the following new features:
 
-ES6 的具体特性如下：
+ES6 包含了以下这些新特性：
 
 - [Arrows 箭头函数](#arrows-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0)
 - [classes 类](#classes-%E7%B1%BB)
@@ -46,11 +46,11 @@ ES6 的具体特性如下：
 ### Arrows 箭头函数
 Arrows are a function shorthand using the `=>` syntax. They are syntactically similar to the related feature in C#, Java 8 and CoffeeScript. They support both expression and statement bodies. Unlike functions, arrows share the same lexical this as their surrounding code.
 
-箭头函数是形如`=>`的函数简写形式，在语法上与 C#、Java 8 和 CoffeScript 非常相似，它们同时支持表达式和语句体，与function定义的函数所不同的是，箭头函数在上下文中共享相同的关键字`this`
+箭头函数是使用`=>`语法的函数简写形式。这在语法上与 C#、Java 8 和 CoffeeScript 的相关特性非常相似。它们同时支持表达式体和语句体。与（普通的）函数所不同的是，箭头函数和其上下文中的代码共享同一个具有词法作用域的`this`。
 
 ```JavaScript
 // Expression bodies
-// 表达式
+// 表达式体
 var odds = evens.map(v => v + 1);
 var nums = evens.map((v, i) => v + i);
 var pairs = evens.map(v => ({even: v, odd: v + 1}));
@@ -63,7 +63,7 @@ nums.forEach(v => {
 });
 
 // Lexical this
-// this 关键字
+// 具有词法作用域的 this
 var bob = {
   _name: "Bob",
   _friends: ["Amy", "Bob", "Cinne", "Dylan", "Ellen"],
@@ -77,7 +77,7 @@ var bob = {
 ### Classes 类
 ES6 classes are a simple sugar over the prototype-based OO pattern. Having a single convenient declarative form makes class patterns easier to use, and encourages interoperability. Classes support prototype-based inheritance, super calls, instance and static methods and constructors.
 
-ES6 的类是基于原型的面向对象模式的一个简单的语法糖，它有一个便捷的声明形式，并鼓励互操作性，这使得类模式更容易使用。class定义的类支持基于原型的继承、[SuperCalls](http://en.wikipedia.org/wiki/Call_super)、实例和静态方法以及构造函数。
+ES6 的类是在基于原型的面向对象模式之上的简单语法糖，它有唯一的、便捷的声明形式，这使得类模式更容易使用，并且鼓励了互操作性。class定义的类支持基于原型的继承、[super 调用](http://en.wikipedia.org/wiki/Call_super)、实例和静态方法以及构造函数。
 
 ```JavaScript
 class SkinnedMesh extends THREE.Mesh {
@@ -102,7 +102,7 @@ class SkinnedMesh extends THREE.Mesh {
 ### Enhanced Object Literals 增强的Object字面量
 Object literals are extended to support setting the prototype at construction, shorthand for foo: foo assignments, defining methods, making super calls, and computing property names with expressions. Together, these also bring object literals and class declarations closer together, and let object-based design benefit from some of the same conveniences.
 
-Object字面量被扩展以支持以下特性：在构建的时候设置原型、`foo: foo`的简写形式赋值、定义方法、调用[Super Calls](http://en.wikipedia.org/wiki/Call_super)、计算表达式的属性名称等。这样就使得Object字面量和类的声明的联系更加紧密，使得基于对象的设计更加便利
+Object字面量被扩展以支持以下特性：在构建的时候设置原型、`foo: foo`赋值的简写形式、定义方法、进行[super 调用](http://en.wikipedia.org/wiki/Call_super)以及使用表达式计算属性名称等。这样就使得Object字面量和类的声明的联系更加紧密，使得基于对象的设计更加便利。
 
 ```JavaScript
 var obj = {
@@ -117,7 +117,7 @@ var obj = {
       return "d " + super.toString();
     },
     // Computed (dynamic) property names
-    // 动态计算属性名称
+    // 计算所得的（动态的）属性名称
     [ 'prop_' + (() => 42)() ]: 42
 };
 ```
@@ -154,7 +154,7 @@ GET`http://foo.org/bar?a=${a}&b=${b}
 ### Destructuring 解构
 Destructuring allows binding using pattern matching, with support for matching arrays and objects.  Destructuring is fail-soft, similar to standard object lookup `foo["bar"]`, producing `undefined` values when not found.
 
-解构允许结合使用模式匹配，支持匹配数组和对象，解构支持[失效弱化](http://www.computerhope.com/jargon/f/failsoft.htm)，与标准的对象查询`foo["bar"]`相似，当查询无结果时生成`undefined`值
+解构允许在（变量-值）绑定时使用模式匹配，支持匹配数组和对象，解构支持[失效弱化](http://www.computerhope.com/jargon/f/failsoft.htm)，与标准的对象查询`foo["bar"]`相似，当查询无结果时生成`undefined`值。
 
 ```JavaScript
 // list matching
@@ -198,9 +198,11 @@ Callee-evaluated default parameter values.  Turn an array into consecutive argum
 
 本人英语烂，直译出来惨不忍睹，尝试意译一下，欢迎issue里给出直译参考（泪目
 
-1. 首先，参数可以指定默认值
-2. 其次，可以通过...运算符将尾随参数转换为一个数组
-3. 最后，同样通过...运算符将作为参数的数组拆解为相应参数变量
+支持由被调用函数进行求值的参数默认值。
+在函数调用时使用`...`运算符，可以将作为参数的数组拆解为连续的多个参数。
+在函数定义时使用`...`运算符，则可以将函数尾部的多个参数绑定到一个数组中。
+“多余参数组合”取代了`arguments`，并可更直接地应用于通常的用例中。
+
 
 果真只能靠自己~早已被作者虐哭
 
@@ -229,7 +231,7 @@ f(...[1,2,3]) == 6
 ### Let + Const 操作符
 Block-scoped binding constructs.  `let` is the new `var`.  `const` is single-assignment.  Static restrictions prevent use before assignment.
 
-let 和 const 属于块级作用域的绑定构造，`let` 是新的 `var`，只在块级作用域内有效，`const` 是[单赋值](http://zh.wikipedia.org/zh-cn/%E9%9D%99%E6%80%81%E5%8D%95%E8%B5%8B%E5%80%BC%E5%BD%A2%E5%BC%8F)，声明的是块级作用域的常量，静态限制在赋值之前禁止使用
+let 和 const 是具有块级作用域的绑定用构造，`let` 是新的 `var`，只在块级作用域内有效，`const` 是[单赋值](http://zh.wikipedia.org/zh-cn/%E9%9D%99%E6%80%81%E5%8D%95%E8%B5%8B%E5%80%BC%E5%BD%A2%E5%BC%8F)，声明的是块级作用域的常量。此两种操作符具有静态限制，可以防止出现“在赋值之前使用”的错误。
 
 
 ```JavaScript
