@@ -1,10 +1,13 @@
 # ECMAScript 6 Features 中文版
 
-第一遍粗译，词不达意，欢迎提 issue
+如词不达意，欢迎提 PR & issue
 
 采用中英混排的方式进行译制，如不解请查看对应原文
 
 **本文档将与原作者的 [文档](https://github.com/lukehoban/es6features) 保持同步更新，欢迎关注**
+
+## Contributors
+- [CloudiDust](https://github.com/CloudiDust)
 
 ## Introduction 简介
 ECMAScript 6 is the upcoming version of the ECMAScript standard. This standard is targeting ratification in June 2015. ES6 is a significant update to the language, and the first update to the language since ES5 was standardized in 2009. Implementation of these features in major JavaScript engines is [underway now](http://kangax.github.io/es5-compat-table/es6/).
