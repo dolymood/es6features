@@ -1,4 +1,4 @@
-# ECMAScript 6 Features 中文版
+# <img src="http://i.imgur.com/yy1sACZ.png" width="100px"/> ECMAScript 6 Features 中文版
 
 第一遍粗译，词不达意，欢迎提 issue
 
