@@ -7,7 +7,7 @@
 **本文档将与原作者的 [文档](https://github.com/lukehoban/es6features) 保持同步更新，欢迎关注**
 
 ## Contributors 翻译贡献者
-- [lenville](https://github.com/lenville)
+- [Lenville](https://github.com/lenville)
 - [CloudiDust](https://github.com/CloudiDust)
 
 ## Introduction 简介
@@ -206,15 +206,10 @@ a === 1;
 ### Default + Rest + Spread  默认值+多余参数组合+参数伸展
 Callee-evaluated default parameter values.  Turn an array into consecutive arguments in a function call.  Bind trailing parameters to an array.  Rest replaces the need for `arguments` and addresses common cases more directly.
 
-本人英语烂，直译出来惨不忍睹，尝试意译一下，欢迎issue里给出直译参考（泪目
-
 支持由被调用函数进行求值的参数默认值。
 在函数调用时使用`...`运算符，可以将作为参数的数组拆解为连续的多个参数。
 在函数定义时使用`...`运算符，则可以将函数尾部的多个参数绑定到一个数组中。
 “多余参数组合”取代了`arguments`，并可更直接地应用于通常的用例中。
-
-
-果真只能靠自己~早已被作者虐哭
 
 ```JavaScript
 function f(x, y=12) {
@@ -345,7 +340,7 @@ Non-breaking additions to support full Unicode, including new Unicode literal fo
 
 > Non-breaking additions to support full Unicode
 
-这句看了半天不知道作者想要表达什么，我就查了下资料，有一种可能是： 增加[不换行空格](http://zh.wikipedia.org/wiki/%E4%B8%8D%E6%8D%A2%E8%A1%8C%E7%A9%BA%E6%A0%BC)的特性以全面支持Unicode，还有一种可能是：渐进增强地、非破坏性地全面支持Unicode，也就是说，新加入的特性并不影响老的代码的使用。我个人比较倾向于第二种解读。[@sumhat](https://github.com/sumhat)提示说第二种解读是正确的
+~~这句看了半天不知道作者想要表达什么，我就查了下资料，有一种可能是： 增加[不换行空格](http://zh.wikipedia.org/wiki/%E4%B8%8D%E6%8D%A2%E8%A1%8C%E7%A9%BA%E6%A0%BC)的特性以全面支持Unicode，还有一种可能是：~~渐进增强地、非破坏性地全面支持Unicode，也就是说，新加入的特性并不影响老的代码的使用。我个人比较倾向于第二种解读。[@sumhat](https://github.com/sumhat)提示说第二种解读是正确的
 
 （续）字符串支持新的Unicode文本形式，也增加了新的正则表达式修饰符`u`来处理代码点，同时，新的API可以在[21bit代码点级别](http://zh.wikipedia.org/wiki/Unicode#.E7.BC.96.E7.A0.81.E6.96.B9.E5.BC.8F)上处理字符串，增加这些支持后可以使用 Javascript 构建全球化的应用。
 注：关于Unicode推荐阅读[复杂的Unicode，疑惑的Python](http://www.blogjava.net/pts/archive/2009/07/20/287506.html)
